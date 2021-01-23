@@ -39,6 +39,16 @@
           font-size: 3.5rem;
         }
       }
+
+
+      table, th, td {
+        border: 1px solid black;
+        border-collapse: collapse;
+      }
+      th, td {
+        padding: 5px;
+        text-align: left;    
+      }
     </style>
     <!-- Custom styles for this template -->
     
@@ -54,11 +64,19 @@
   <div class="collapse navbar-collapse" id="navbarsExampleDefault">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item active">
-        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+        <a class="nav-link" href="{% url 'home-page' %}">Home <span class="sr-only">(current)</span></a>
       </li>
 
       <li class="nav-item">
-        <a class="nav-link" href="#">About</a>
+        <a class="nav-link" href="{% url 'about-page' %}">About</a>
+      </li>
+
+      <li class="nav-item">
+        <a class="nav-link" href="{% url 'contact-page' %}">Contact</a>
+      </li>
+
+      <li class="nav-item">
+        <a class="nav-link" href="{% url 'score-page' %}">Score</a>
       </li>
 
     </ul>

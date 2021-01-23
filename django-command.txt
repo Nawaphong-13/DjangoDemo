@@ -32,3 +32,9 @@
 
 - สร้าง template website
 	https://www.w3schools.com/bootstrap4/
+
+- สร้างฐานข้อมูลเพิ่มใน model.py
+	- Run python manage.py makemigration
+	- Run python manage.py migrate
+
+- เพิ่ม admin.site.register(<name database: ExamScore>) ใน admin.py
