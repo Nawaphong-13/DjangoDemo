@@ -4,11 +4,13 @@
 
 <div class="container">
   <center>
- <table style="width:100%">
+  <h1> ตารางคะแนน </h1>
+   <table style="width:100%">
     <tr><th> วิชา </th><th> ชื่อนักเรียน </th><th> คะแนนสอบ </th></tr>
-    <tr><td> คณิต </td><td> นายเอ </td><td> 75 </td></tr>
-    <tr><td> คณิต </td><td> นายเอ </td><td> 75 </td></tr>
-    <tr><td> คณิต </td><td> นายเอ </td><td> 75 </td></tr>
+    
+    {% for sc in score %}
+      <tr><td> {{sc.subject}} </td><td> {{sc.student_name}} </td><td> {{sc.score}} </td></tr>
+    {% endfor %}
 
   </table>
   </center>

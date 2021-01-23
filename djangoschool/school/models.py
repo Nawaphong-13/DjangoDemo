@@ -5,12 +5,12 @@ from django.db import models
 class ExamScore(models.Model):
 
     allsubject = (
-                    ('math','คณิตศาสตร์'),
-                    ('sci','วิทยาศาสตร์'),
-                    ('art','ศิลป'),
-                    ('eng','ภาษาอังกฤษ'),
-                    ('physics','ฟิสิกส์'),
-                    ('bio','ชีววิทยา')
+                    ('คณิตศาสตร์','คณิตศาสตร์'),
+                    ('วิทยาศาสตร์','วิทยาศาสตร์'),
+                    ('ศิลป','ศิลป'),
+                    ('ภาษาอังกฤษ','ภาษาอังกฤษ'),
+                    ('ฟิสิกส์','ฟิสิกส์'),
+                    ('ชีววิทยา','ชีววิทยา')
                 )
 
     subject = models.CharField(max_length=200, choices=allsubject, default='math')
