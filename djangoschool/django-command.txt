@@ -1,0 +1,34 @@
+- Install virtualenv
+	pip install virtualenv
+
+- Create environment
+	virtualenv venv
+
+- Activate
+	.\venv\scripts\activate 
+
+- Install Django
+	pip install django==3.0
+
+- Create project
+	django-admin startproject <name project:djangoschool>
+
+	- cd <name project>
+	- python manage.py runserver
+
+	- คำสั่งที่ใช้ในการสร้างฐานข้อมูลของ admin ครั้งแรก
+	python manage.py migrate
+
+	-สร้าง user ของ admin
+	python manage.py createsuperuser
+
+		<<Username:admin, Password:nawaphong>>
+
+	-เข้าไปยัง django admin ผ่าน webbrowser
+		localhost:8000/admin
+
+- สร้าง App ของ Django
+	python manage.py startapp <<name app:school>>
+
+- สร้าง template website
+	https://www.w3schools.com/bootstrap4/
