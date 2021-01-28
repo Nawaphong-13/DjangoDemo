@@ -1,7 +1,10 @@
+from typing import Sequence
+from django.db.models.base import Model
 from django.shortcuts import render, redirect  # ดีงมาจาก template
 from django.http import HttpResponse #เขียนบนกระดาน
-from .models import ExamScore
+from .models import ALLStudent, ExamScore
 from django.contrib.auth.models import User
+from django.contrib.auth.decorators import login_required
 
 # Create your views here.
 
@@ -43,3 +46,27 @@ def Register(request):
 
     return render(request, ('school/register.html'))
 
+
+################## Search Page ###################################
+@login_required  # บังคับ function นี้ต้อง login
+
+def SearchStudent(request):
+    # MODELS.objects.all() ดึงค่าทั้งหมด
+    # MODELS.objects.get(student_id='63001') ดึงค่าแค่ตัวเดียว หากเกินจะ error
+    # MODELS.objects.filter(level='ม.1') ดึงค่าหลายค่า
+    #search = ALLStudent.objects.get(student_id=)
+    if request.method == 'POST':
+        data = request.POST.copy() # Input
+        searchid = data.get('search')  # 631001 type 'str'
+        print(searchid, type(searchid))
+        try:
+            result = ALLStudent.objects.get(student_id=searchid)
+            print('RESULT :', result)
+            context = {'result':result, 'check':'Found'}
+        except:
+            context = {'result':'ไม่มีข้อมูลในระบบ', 'check':'Notfound'}
+
+        return render(request, 'school/search.html', context)
+
+
+    return render(request, 'school/search.html')

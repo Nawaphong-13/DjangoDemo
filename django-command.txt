@@ -38,3 +38,15 @@
 	- Run python manage.py migrate
 
 - เพิ่ม admin.site.register(<name database: ExamScore>) ใน admin.py
+
+
+
+วิธีการรัน wedsite โดยให้คอมหรือมือถือที่ต่อเน็ตเดียวกันเข้าถึงได้
+	- settings.py : ALLOWED_HOSTS = ['*']
+	- cmd: python manage.py runserver 0.0.0.0:8000
+	- ไปเช็ค ip ใน cmd: พิมพ์ ipconfig
+
+วิธีทดสอบให้คนอื่นนอกวงเน็ตเวิร์กเข้าถึงได้
+	- ต้องใช้ nkrok.com
+	- รัน ngrok.exe
+	- พิมพ์สั่ง ngrog http 8000
