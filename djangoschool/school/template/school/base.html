@@ -82,9 +82,16 @@
 
     </ul>
     <dir>
-      {% if user.is_authenticated %}
+      {% if user.is_authenticated %} {% comment "" %} มีการล็อคอิน {% endcomment %}
          <font color="white"> สวัสดี &nbsp {{user.first_name}} &nbsp&nbsp {{user.last_name}}</font>
-        <a class="btn btn-primary" href="{% url 'logout' %}">Logout</a>
+        {% if user.profile.photoprofile %}
+          <img src="{{user.profile.photoprofile.url}}" width="30" class="rounded">
+
+        {% endif %}
+
+
+
+        &nbsp <a class="btn btn-primary" href="{% url 'logout' %}">Logout</a>
       {% else %}
         <a class="btn btn-primary" href="{% url 'register-page' %}">Register</a>
         <a class="btn btn-primary" href="{% url 'login' %}">Login</a>

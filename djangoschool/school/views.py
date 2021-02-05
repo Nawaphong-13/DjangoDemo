@@ -47,6 +47,8 @@ def Register(request):
     return render(request, ('school/register.html'))
 
 
+
+
 ################## Search Page ###################################
 @login_required  # บังคับ function นี้ต้อง login
 
@@ -70,3 +72,33 @@ def SearchStudent(request):
 
 
     return render(request, 'school/search.html')
+
+
+###################### Edit Profile ###############################
+@login_required  # บังคับ function นี้ต้อง login
+
+def EditProfile(request):
+
+    username = request.user.username
+    current = User.objects.get(username=username)
+
+    if request.method == 'POST':
+        data = request.POST.copy()
+        first_name = data.get('first_name')
+        last_name = data.get('last_name')
+        email = data.get('email')
+        # password = data.get('password')
+
+        myprofile = User.objects.get(username=username)
+        myprofile.username = email
+        myprofile.first_name = first_name
+        myprofile.last_name = last_name
+        myprofile.email = email
+        #myprofile.set_password(password)
+        myprofile.save()
+        # from django.shortcuts import redirect
+        return redirect('edit-profile')
+
+
+    context = {'data':current}
+    return render(request, ('school/editprofile.html'), context)

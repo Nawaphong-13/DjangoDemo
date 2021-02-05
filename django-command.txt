@@ -50,3 +50,7 @@
 	- ต้องใช้ nkrok.com
 	- รัน ngrok.exe
 	- พิมพ์สั่ง ngrog http 8000
+
+
+เพิ่มรูปภาพ
+	https://matthiasomisore.com/web-programming/display-image-in-a-django-template-using-imagefield/
